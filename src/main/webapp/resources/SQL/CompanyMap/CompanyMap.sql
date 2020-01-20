@@ -1,0 +1,31 @@
+create table CompanyLocation(
+	company_no number(38) primary key
+	,company_name varchar2(100) not null unique
+	,company_x VARCHAR2(1000) NOT NULL
+	,company_y VARCHAR2(1000) NOT NULL
+	,company_addr VARCHAR2(200) NOT NULL
+	,company_image VARCHAR2(1000)
+);
+
+--drop table companylocation;
+
+SELECT * FROM COMPANYLOCATION;
+
+delete from COMPANYLOCATION where company_no=5;
+CREATE SEQUENCE COMPANY_NO_SEQ
+  START WITH 1
+  INCREMENT BY 1
+  MAXVALUE 10000
+  MINVALUE 1
+  NOCYCLE;
+
+INSERT INTO COMPANYlOCATION (COMPANY_NO, COMPANY_NAME, COMPANY_X, COMPANY_Y, COMPANY_ADDR, COMPANY_IMAGE)
+VALUES(COMPANY_NO_SEQ.NEXTVAL, '본점','37.537915','127.123304','서울시','IMAGE');
+
+ALTER SEQUENCE COMPANY_NO_SEQ INCREMENT BY 1;
+
+SELECT COMPANY_NO_SEQ.NEXTVAL FROM DUAL;
+
+select company_name from companylocation;
+
+delete from COMPANYLOCATION;

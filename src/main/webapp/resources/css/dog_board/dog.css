@@ -1,0 +1,146 @@
+@charset "UTF-8";
+#contents { width: 1320px; margin: 50px auto;}
+
+/* input 관련  */
+input, select {
+	font-size: 15px;
+	cursor: pointer;	
+}
+
+table {
+	margin: 0 auto;
+}
+
+/* 이미지형 게시판 전체 */
+.main {
+    margin-top: 3px;
+    width: 100%;
+}
+
+/* 이미지형 게시판 이름 */
+.name {
+	text-align: center;
+	margin-top: 10px;
+	font-size: 18px;
+	font-weight: bolder;
+}
+
+/* 이미지형 게시판 이미지 관련 */
+.board_list .item {
+	display: inline-block;
+	width: 316px;
+	height: 400px;
+	background: #fff;
+	margin: 10px 5px;
+}
+
+.board_list .img {
+	height: 90%;
+	background: yellow;
+}
+
+/* 페이징 */
+#cList_paging {
+	text-align: center;
+	font-size: 18px;
+	margin: 10px 0;
+}
+
+/* 검색 */
+#cFind_wrap {
+	text-align: center;
+	padding: 20px;
+	position: relative; 
+}
+
+/* 글쓰기 */
+#cFind_wrap .cWrite {
+	position: absolute; left: 1270px;
+	width: 50px;
+    height: 30px;
+}
+
+/* 내용보기 css */
+#dog_menu {
+	padding: 20px;
+	display: flex;
+    justify-content: center;
+}
+
+/* 이미지형 게시판 내용보기(dog_cont) */
+#cont {
+	margin: 0 auto;
+}
+
+/* dog_cont input */
+#dog_menu input {
+	margin-right: 10px;
+	width: 50px;
+    height: 30px;
+    cursor: pointer;
+}
+
+#find_name:focus {
+	outline: none;
+}
+
+/* dog_write */
+#main {
+	margin: 0 auto;
+}
+
+#dog_write {
+	width: 100%;
+	padding-left: 140px;
+}
+
+.size{
+	width: 50px;
+	height: 30px;
+}
+
+#dog_title {
+	margin-bottom: 20px;
+	width: 1000px;
+	height: 30px;
+	border: none;
+	font-size: 30px;
+}
+
+#dog_title:focus {
+	outline: none;
+}
+
+#dog_cont {
+	margin-bottom: 20px;
+	
+}
+
+#dog_file {
+	margin: 10px 0;
+}
+
+.board_list ul {	
+	padding-bottom: 50px;
+	text-align: center;
+}
+
+.board_list ul li {
+	display: inline-block;
+	font-size: 25px;
+	padding: 0 20px;
+}
+
+.board_list ul li.current {
+	background-color: red;
+}
+
+.board_list ul li.current a {
+	color: white;
+}
+
+.dog_list p{
+	text-align: center;
+	font-size: 30px;
+	padding-bottom: 25px;
+}

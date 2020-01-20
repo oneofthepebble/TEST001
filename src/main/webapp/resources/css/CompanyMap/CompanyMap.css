@@ -1,0 +1,155 @@
+/* 전체 요소 영역 */
+/* 로고 이미지 */
+#MapImg {	
+	margin: 0px auto;
+    width: 350px;
+    height: 100px;
+    padding-bottom: 60px;
+}
+.tagArea > p > span {
+	margin : 0 70px;
+	font-weight: bold;
+	font-size : 35px;
+}
+.not_scroll {
+	overflow: hidden;
+}
+
+#MapContainer {
+	position: relative;
+	width: 75%;
+	border-left: solid 1px #dbdbdb;
+	border-right: solid 1px #dbdbdb;
+	margin: 0% auto;
+	min-width: 460px;
+	padding: 7% 0;
+}
+/* 회사 버튼 들어갈 영역 */
+#CompanyName {
+	clear : both;
+	text-align: center;
+	margin-top: 50px;
+}
+/* 회사 버튼 */
+.CompanyBtn {
+	width: 150px;
+	height: 50px;
+	margin: 10px 30px;
+	color: black;
+}
+/* 지도 들어갈 영역 */
+#MapArea {
+	width: 100%;
+	height: 500px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	background-color: gray;
+}
+
+/* 관리자가 회사 추가 */
+.DPbackground {
+	opacity: 0.7;
+	background-color: gray;
+}
+#opacityBlock {
+	position: relative;
+}
+.addCompany {
+	display: none;
+}
+#addCompany {
+	position: fixed;
+	/* display: none; */
+	background-color: white;
+	border: 1px solid black;
+	min-width: 360px;
+	width: 50%;
+	height: 450px;
+	right: 25%;
+	bottom: 20%;
+
+	text-align: center;
+}
+#addCompany > .textInput {
+	display: block;
+	margin: 25px auto 0 auto;
+	width: 50%;
+	height: 50px;
+}
+
+#addCompany > .buttonInput {
+	width: 50px;
+	height: 30px;
+	margin: 10px 20px 0 20px;
+}
+/* 회사 추가 버튼 */
+.addLocation {
+	position: absolute;
+	right: 50px;
+	top: 15px;
+	/* margin: 20px 20px 0 0; */
+}
+#adminAddMap {
+	position: absolute;
+	opacity: 0;
+	width: 28px;
+	height: 28px;
+	right: 0;
+	bottom: 2px;
+	z-index: 1;
+}
+
+/* MapLayoutBox */
+.overlayOpacity {
+	opacity: 0.4;
+}
+.overlayBOX {
+	width: 300px;
+	height: 100px;
+	background-color: #fff;
+	border: 1px solid green;
+	position: relative;
+	right: -20px;
+	top: -25px;
+}
+.overlayBOX::after {
+	position: absolute;
+	bottom: -11px;
+	left: calc(64% - 125px);
+	content: " ";
+	height: 0px;
+	z-index: -1;
+	border-bottom: 10px solid;
+	border-left: 10px solid rgba(0, 0, 0, 0);
+	border-right: 10px solid rgba(0, 0, 0, 0);
+	color: black;
+	transform: rotate(-180deg);
+	-webkit-transform: rotate(-180deg);
+}
+
+.companyImage {
+	float: left;
+	width: 100px;
+	height: 100%;
+	box-sizing: border-box;
+	border: 1px solid rebeccapurple;
+}
+.companyImage > img {
+	width: 100%;
+	height: 100%;
+}
+.Company_name,
+.Company_addr {
+	float: left;
+	width: 195px;
+	height: 48%;
+	text-align: center;
+	margin-left: 1px;
+	border: 1px solid pink;
+}
+
+@media (max-width: 1200px) {
+	#store {
+		display : none;
+	}
+}

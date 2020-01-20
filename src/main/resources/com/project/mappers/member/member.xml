@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Member">
+
+    <!-- 게시판 카운트-->
+    <select id="list_count" resultType="int">
+        select count(BACK_END_LIST_NO) from board
+        <where>
+            <if test="back_end_title==''">
+                and step=0
+            </if>
+            <!-- 검색조건이 없어서 총레코드개수 -->
+            <if test="back_end_title =='board_title'"><!-- 검색조건이 제목인 경우 -->
+                back_end_list_title like #{back_end_field} and step=0<!-- like는 오라클 검색 연산자 -->
+            </if>
+            <if test="back_end_title=='board_cont'"><!-- 검색조건이 내용인 경우 -->
+                back_end_list_cont like #{back_end_field} and step=0
+            </if>
+        </where>
+    </select>
+
+    <select id="user_list" resultType="board">
+        select * from (select rowNum rNum,BACK_END_LIST_NO,back_end_list_img,back_end_list_title,back_end_list_cont,
+        back_end_list_id,back_end_list_date,step,ref from (select * from Board
+        <where>
+            <if test="back_end_title == ''"></if>
+            <!-- 검색조건이 없어서 총레코드개수 -->
+            <if test="back_end_title == 'board_title'">
+                <!-- 검색조건이 제목인 경우 -->
+                back_end_list_title like #{back_end_field} <!-- like는 오라클 검색 연산자 -->
+            </if>
+            <if test="back_end_title == 'board_cont'">
+                <!-- 검색조건이 내용인 경우 -->
+                back_end_list_cont like #{back_end_field}
+            </if>
+        </where>
+        order by back_end_list_date desc )where step=0) where rNum &gt;= #{startrow} and rNum &lt;= #{endrow}
+    </select>
+
+    <!--아이디 로그인-->
+    <select id="user_id_check" resultType="MemberVO">
+        select * from MEMBERJOIN where user_id=#{user_id} and user_pwd=#{user_pwd}
+    </select>
+
+    <!--번호코드전송-->
+    <select id="phone" resultType="MemberVO">
+        select * from MEMBERJOIN where USER_PHONE=#{phone}
+    </select>
+
+    <!--아이디찾을때-->
+    <select id="find_name_phone" resultType="MemberVO">
+        select * from MEMBERJOIN where USER_NAME=#{user_name} and USER_PHONE=#{user_phone}
+    </select>
+
+    <!-- 비번 찾을때 -->
+    <select id="find_id_name_phone" resultType="MemberVO">
+        select * from MEMBERJOIN where USER_ID=#{user_id} and USER_NAME=#{user_name} and USER_PHONE=#{user_phone}
+    </select>
+
+    <!--임시 비번 업데이트-->
+    <update id="random_pwd">
+        update MEMBERJOIN set USER_PWD=#{user_pwd} where USER_ID=#{user_id} and USER_NAME=#{user_name} and USER_PHONE=#{user_phone}
+    </update>
+
+
+
+</mapper>
+

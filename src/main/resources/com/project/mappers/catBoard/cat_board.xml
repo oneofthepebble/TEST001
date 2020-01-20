@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Cat">
+
+	<!-- 고양이 저장(total) -->
+	<insert id="cat_in">
+		insert into cat_board (cat_no,cat_title,cat_cont,cat_file) 
+		values(cat_no_seq.nextval,#{cat_title},#{cat_cont},#{cat_file})
+	</insert>
+	
+	<!-- 검색전후 레코드 개수(total) -->
+	<select id="cat_count" parameterType="cat" resultType="int">
+		select count(cat_no) from cat_board
+		<where>
+			<if test="find_field == ''"></if>
+			<if test="find_field == 'cat_title'">
+				cat_title like #{find_name}
+			</if>
+			
+			<if test="find_field == 'cat_cont'">
+				cat_cont like #{find_name}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 검색 전후 글쓰기 목록(total) -->
+	<select id="cat_list" parameterType="cat" resultType="cat">
+		select * from(
+		select rowNum rNum,cat_no,cat_title,cat_file from(
+			select * from cat_board
+			<where>
+				<if test="find_field == ''"></if>
+				<if test="find_field == 'cat_title'">
+					cat_title like #{find_name}
+				</if>
+				<if test="find_field == 'cat_cont'">
+					cat_cont like #{find_name}
+				</if>
+			</where>
+			order by cat_no desc))
+			
+			where rNum &gt;= #{startrow} and rNum &lt;=#{endrow}
+			
+	</select>
+	
+	<!-- 내용보기(total) -->
+	<select id="cat_cont" parameterType="int" resultType="cat">
+		select * from cat_board where cat_no=#{cat_no}
+	</select>
+	
+	<!-- 게시글 수정(total) -->
+	<update id="cat_edit">
+		update cat_board set cat_title=#{cat_title},cat_cont=#{cat_cont},
+		cat_file=#{cat_file} where cat_no=#{cat_no}
+	</update>
+	
+	<!-- 게시물 삭제(total) -->
+	<delete id="cat_del">
+		delete from cat_board where cat_no=#{cat_no}
+	</delete>
+	
+	<!-- 고양이(먼치킨) -->
+	<!-- 검색전후 레코드 개수(total) -->
+	<select id="cat_mun_count" parameterType="cat" resultType="int">
+		select count(cat_no) from cat_board
+		<where>
+			<if test="find_field == ''"></if>
+			<if test="find_field == 'cat_title'">
+				cat_title like #{find_name}
+			</if>
+			
+			<if test="find_field == 'cat_cont'">
+				cat_cont like #{find_name}
+			</if>
+		</where>
+		cat_board where cat_title='먼치킨'
+	</select>
+	
+	<!-- 검색 전후 글쓰기 목록(고양이(먼치킨)) -->
+	<select id="cat_mun_list" parameterType="cat" resultType="cat">
+		select * from(
+		select rowNum rNum,cat_no,cat_title,cat_file from(
+			select * from cat_board
+			<where>
+				<if test="find_field == ''"></if>
+				<if test="find_field == 'cat_title'">
+					cat_title like #{find_name}
+				</if>
+				<if test="find_field == 'cat_cont'">
+					cat_cont like #{find_name}
+				</if>
+			</where>
+			cat_board where cat_title='먼치킨' order by cat_no desc))
+			
+			where rNum &gt;= #{startrow} and rNum &lt;=#{endrow}
+			
+	</select>
+	
+	<!-- 고양이(샴) -->
+	<!-- 검색전후 레코드 개수(total) -->
+	<select id="cat_shiam_count" parameterType="cat" resultType="int">
+		select count(cat_no) from cat_board
+		<where>
+			<if test="find_field == ''"></if>
+			<if test="find_field == 'cat_title'">
+				cat_title like #{find_name}
+			</if>
+			
+			<if test="find_field == 'cat_cont'">
+				cat_cont like #{find_name}
+			</if>
+		</where>
+		cat_board where cat_title='샴'
+	</select>
+	
+	<!-- 검색 전후 글쓰기 목록(고양이(샴)) -->
+	<select id="cat_shiam_list" parameterType="cat" resultType="cat">
+		select * from(
+		select rowNum rNum,cat_no,cat_title,cat_file from(
+			select * from cat_board
+			<where>
+				<if test="find_field == ''"></if>
+				<if test="find_field == 'cat_title'">
+					cat_title like #{find_name}
+				</if>
+				<if test="find_field == 'cat_cont'">
+					cat_cont like #{find_name}
+				</if>
+			</where>
+			cat_board where cat_title='샴' order by cat_no desc))
+			
+			where rNum &gt;= #{startrow} and rNum &lt;=#{endrow}			
+	</select>
+	
+	<!-- 고양이(폴드) -->
+	<!-- 검색전후 레코드 개수(total) -->
+	<select id="cat_fold_count" parameterType="cat" resultType="int">
+		select count(cat_no) from cat_board
+		<where>
+			<if test="find_field == ''"></if>
+			<if test="find_field == 'cat_title'">
+				cat_title like #{find_name}
+			</if>
+			
+			<if test="find_field == 'cat_cont'">
+				cat_cont like #{find_name}
+			</if>
+		</where>
+		cat_board where cat_title='폴드'
+	</select>
+	
+	<!-- 검색 전후 글쓰기 목록(고양이(폴드)) -->
+	<select id="cat_fold_list" parameterType="cat" resultType="cat">
+		select * from(
+		select rowNum rNum,cat_no,cat_title,cat_file from(
+			select * from cat_board
+			<where>
+				<if test="find_field == ''"></if>
+				<if test="find_field == 'cat_title'">
+					cat_title like #{find_name}
+				</if>
+				<if test="find_field == 'cat_cont'">
+					cat_cont like #{find_name}
+				</if>
+			</where>
+			cat_board where cat_title='폴드' order by cat_no desc))
+			
+			where rNum &gt;= #{startrow} and rNum &lt;=#{endrow}			
+	</select>		
+	
+	<!-- 고양이(페르시안) -->
+	<!-- 검색전후 레코드 개수(total) -->
+	<select id="cat_persian_count" parameterType="cat" resultType="int">
+		select count(cat_title) from cat_board
+		<where>
+			<if test="find_field == ''"></if>
+			<if test="find_field == 'cat_title'">
+				cat_title like #{find_name}
+			</if>
+			
+			<if test="find_field == 'cat_cont'">
+				cat_cont like #{find_name}
+			</if>
+		</where>
+		cat_board where cat_title='페르시안'
+	</select>
+	
+	<!-- 검색 전후 글쓰기 목록(고양이(페르시안)) -->
+	<select id="cat_persian_list" parameterType="cat" resultType="cat">
+		select * from(
+		select rowNum rNum,cat_no,cat_title,cat_file from(
+			select * from cat_board
+			<where>
+				<if test="find_field == ''"></if>
+				<if test="find_field == 'cat_title'">
+					cat_title like #{find_name}
+				</if>
+				<if test="find_field == 'cat_cont'">
+					cat_cont like #{find_name}
+				</if>
+			</where>
+			cat_board where cat_title='페르시안' order by cat_no desc))
+			
+			where rNum &gt;= #{startrow} and rNum &lt;=#{endrow}			
+	</select>		
+	
+	
+
+</mapper>

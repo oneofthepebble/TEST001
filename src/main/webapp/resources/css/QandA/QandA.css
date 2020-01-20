@@ -1,0 +1,194 @@
+@charset "UTF-8";
+#contents { 
+	width: 1000px; margin: 50px auto;
+	height: 800px;
+}
+
+/* input 관련  */
+input, select {
+	font-size: 15px;
+	cursor: pointer;	
+}
+
+table {
+	margin: 0 auto;
+}
+
+.main {
+    margin-top: 3px;
+    width: 100%;
+}
+
+.main .qboard_name {
+	font-size: 30px;
+	color: #000;
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.main .qdate {
+	font-size: 15px;
+	float: left;
+}
+
+.main .qhit {
+	font-size: 15px;
+	float: right;
+	margin-bottom: 20px;
+}
+
+.main .qtitle {
+	font-size: 30px;
+	text-align: center;	
+	color: red;
+	padding-top: 50px;
+}
+
+.main .qname {
+	text-align: right;
+	border-bottom: 1px dotted gray;
+	margin-bottom: 50px;
+	padding-top: 20px;
+	font-size: 15px;
+}
+
+.reply {
+	width: 25px;
+	height: 25px;
+}
+
+.qList_count {
+	padding-bottom: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: right;
+}
+
+#qList_t {
+	margin: 0 auto;
+	width: 100%;
+}
+
+#qFind_wrap .qWrite {
+	position: absolute;
+	left: 930px;
+}
+
+#qList_t th {
+	font-size: 20px;
+	padding: 10px;
+	background-color: #bdbdbd;
+}
+
+#qList_t .title_css {
+	padding-left: 120px;
+}
+
+#qList_t td {
+	font-size: 18px;
+	padding: 10px;
+}
+
+#qList_t tr:hover {
+	background-color: #e0e0e0;
+}
+
+.OneLine {
+	display: inline-block;
+    width: 210px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+/* 페이징 */
+#qList_paging {
+	text-align: center;
+	font-size: 18px;
+	margin: 20px 0;
+}
+
+/* 검색 */
+#qFind_wrap {
+	text-align: center;
+	padding: 0px;
+	position: relative; 
+}
+
+/* 글쓰기 */
+#qFind_wrap .cWrite {
+	position: absolute; left: 1210px;
+	width: 50px;
+    height: 30px;
+}
+
+#cont {
+	margin: 0 auto;
+}
+
+#main {
+	margin: 0 auto;
+}
+
+#find_name:focus {
+	outline: none;
+}
+
+#QandA_write {
+	width: 100%;
+	padding-left: 40px;
+}
+
+.size{
+	width: 50px;
+	height: 30px;
+}
+
+#q_name {
+	margin-bottom: 20px;
+	width: 1000px;
+	height: 30px;
+	border: none;
+	font-size: 30px;
+}
+#q_name:focus {
+	outline: none;
+}
+
+#q_title {
+	margin-bottom: 20px;
+	width: 1000px;
+	height: 30px;
+	border: none;
+	font-size: 30px;
+}
+#q_title:focus {
+	outline: none;
+}
+
+#q_pwd {
+	margin-bottom: 20px;
+	width: 1000px;
+	height: 30px;
+	border: none;
+	font-size: 30px;
+}
+#q_pwd:focus {
+	outline: none;
+}
+
+/* 게시판 내용보기 */
+#q_menu {
+	padding: 20px;
+	display: flex;
+    justify-content: center;
+}
+
+#q_menu input {
+	margin-right: 10px;
+	width: 50px;
+    height: 30px;
+    cursor: pointer;
+}
+

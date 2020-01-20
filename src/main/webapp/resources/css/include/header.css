@@ -1,0 +1,167 @@
+body { }
+#title {background: #fff;}
+#footer {border-top: 1px solid #dbdbdb;}
+
+/* header */
+.header {height: 400px; width: 95%;} 
+.header .header_menu {text-align: right; position: relative; }                         
+.header .header_menu a {color: #fff; 
+    /* 패딩값을 먹게 하려면 인라인요소로 블록구조 */
+    padding: 8px 0 6px 10px; display: inline-block; 
+    /*하얀색을 회색으로 0.5초 동안 서서히 바뀌게*/
+    font-size: 18px;
+    font-weight: bold;
+   }
+.header .header_menu a:hover {color: #51b0dc;}
+
+.header .header_title {text-align: center; margin-top: auto; 
+margin-top: 80px;}                         
+.header .header_title a {font-size: 60px;}
+.header .header_title a:hover {color: #ccc;}
+
+.header_title .title_img {
+	width: 300px;
+	height: 150px;
+	border: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: #fff;
+	opacity: 0.7;
+}
+
+/* title menu */
+.title {
+    height: 50px;  
+    border-bottom: 1px solid #dbdbdb;
+    z-index: 1000;
+}
+.title li{
+    margin: 0 auto;
+    width: 24.9%; 
+    z-index: 1000;         
+}
+.title li > div {
+    border-right: 1px solid #dbdbdb;
+    z-index: 1000;
+}
+
+.title li:last-child > div {
+    border-right: none;  
+    z-index: 1000;
+}
+.title .category>li{
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: #fff;
+    position: relative;
+    font-size: 15px;    
+    z-index: 1000;   
+}
+
+.title .category>li a{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.title .category>li:hover .sub_category{
+    display: block;
+    z-index: 1000;
+    
+}
+.title .category>li a{
+    display: block;
+    z-index: 1000;
+}
+.title .category>li a:hover{
+    color: #2698cb;
+    z-index: 1000;
+    
+}
+/* 플로팅 메뉴를 위한 fixed클래스 */
+.fixed{
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 100;
+}
+
+/* sub_category */
+.title .category .sub_category{
+    position: absolute;
+    opacity: 0.9;
+    top: 50px;
+    left: -1.5px;
+    width: 100%;
+    display: none;
+    border-bottom: 1px solid #dbdbdb;
+    border-right: 1px solid #dbdbdb;
+    border-left: 1px solid #dbdbdb;
+    border-top: 2px solid #2698cb;  
+    z-index: 100;   
+}
+.title .category .sub_category > a {
+    border-right: 1px solid #dbdbdb;
+    z-index: 100;
+}
+.title .category .sub_category > li{
+    background: #e4e4e4;
+    width: 100%;
+    z-index: 100;
+}
+
+a#move_top_btn {
+	font-size: 30px;
+	position: fixed;
+	right: 2%;
+	bottom: 310px;
+	z-index: 999;
+	display: none;
+	border: 3px solid #51b0dc;
+	border-radius: 50%;	
+}
+
+#move_top_btn .top_btn {
+	width: 150px;
+	height: 150px;
+}
+
+a#store {
+	font-size: 30px;
+	position: fixed;
+	left: 0;
+	bottom: 15%;
+}
+
+#store .company_img {
+	width: 150px;
+	height: 150px;
+}
+
+/* mypsge_hover  */
+#mypage_hover{
+	position: absolute;
+	right: 78px;
+	display: none;	
+}
+#mypage_hover:hover {
+	display: block;
+}
+#mypage_cont:hover ~ div{
+	display: block;
+}
+
+#mypage_cont {
+	margin: 0 auto;
+    width: 75px;
+}
+
+/* footer */
+.footer {text-align: center; padding: 30px 50px;}
+.footer li {position: relative; display: inline; padding: 0 7px 0 10px; white-space: nowrap;}
+/* 가상으로 왼쪽 선 설정 */
+.footer li::before {content: ''; width: 1px; height: 12px; background-color: #dbdbdb; position: absolute; left: 0; top: 0;}
+.footer li:first-child::before{width: 0;}
+.footer address {padding-top: 15px;}

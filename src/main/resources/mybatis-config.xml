@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+ <typeAliases>
+ 	<typeAlias type="com.project.vo.CatVO" alias="cat"/>
+ 	
+ 	<typeAlias type="com.project.vo.DogVO" alias="dog"/>
+
+ 	<typeAlias type="com.project.vo.ShopVO" alias="s"/>
+ 	<!-- ShopVO 빈클래스의 객체 별칭명 s를 관리 -->
+ 	<typeAlias type="com.project.vo.BasketVO" alias="basket"/>
+ 	<!-- BasketVO 빈클래스의 객체 별칭명 basket을 관리 -->
+
+ 	<typeAlias type="com.project.vo.QandAVO" alias="QandA"/>
+ 	
+ 	<typeAlias type="com.project.vo.PayVO" alias="pay"/>
+ 	<!-- PayVO 빈클래스의 객체 별칭명 pay를 관리 -->
+ 	
+ 	<typeAlias type="com.project.vo.PayokVO" alias="payOK"/>
+ 	<!-- Pay_okVO 빈클래스의 객체 별칭명 payOK를 관리 -->
+ 	
+ 	<!--분양 게시판-->
+    <typeAlias type="com.project.vo.MemberVO" alias="MemberVO"/>
+ 	<typeAlias type="com.project.vo.CompanyVO" alias="CompanyVO"/>
+
+    <typeAlias type="com.project.vo.BoardVO" alias="board"/>
+
+    <typeAlias type="com.project.vo.NormalBoardVO" alias="normal"/>
+    <!--분양 게시판-->
+
+ </typeAliases>
+</configuration>
+
+
+

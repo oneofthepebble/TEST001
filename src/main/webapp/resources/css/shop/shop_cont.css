@@ -1,0 +1,167 @@
+/** 반려동물용품내용 css **/
+
+
+
+/** 컨테이너 **/
+.container {
+    position: relative; width: 80%; margin: 50px auto;
+    padding: 50px;
+}
+
+
+/** 상품 상세 영역 **/
+
+/** 사진 **/
+.item_main {
+    display: block;
+    margin: 0 auto; 
+}
+
+/** 돋보기 기능 **/
+/* 감싸는 div */
+.item_main .itemImg {
+    position: relative;
+    float: left;
+    width: 35%; height: 450px;
+    margin: 0 auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 확대될 타겟이미지*/
+.target {
+    display: block;
+    width: 100%; height: 450px;
+}
+
+/* 돋보기 */
+.magnifier {
+    width: 170px;
+    height: 170px;
+    position: absolute;
+    border-radius: 100%;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.85), 0 0 3px 3px rgba(0, 0, 0, 0.25);
+    display: none;
+}
+
+/** 상품 상세 정보 **/
+.item_main .itemContBox {
+    width: 65%; overflow: hidden;
+    padding-left: 160px;
+}
+
+.item_main .itemContBox .itemContName {
+    font-weight: bold;
+    font-size: 40px; padding: 0 20px 20px 0;
+}
+.item_main .itemContBox .itemContInfo {
+    border-bottom: 1px solid #dcdcdc;
+    font-size: 20px; padding: 0 20px 20px 0;
+
+}
+/* .item_main .itemContBox .itemContReco {
+    border-bottom: 1px solid #dcdcdc;
+    font-size: 20px; padding: 20px 20px 20px 0;
+} */
+
+.item_main .itemContBox .itemContPrice {
+    border-bottom: 1px solid #dcdcdc;
+    font-size: 20px; padding: 20px 20px 20px 0;
+}
+.item_main .itemContReco {
+    border-bottom: 1px solid #dcdcdc;
+    font-size: 20px; padding: 20px 20px 20px 0;
+}
+.item_main .itemContReco .contPrice {
+}
+
+/** 수량 & 구매 영역 **/
+.item_main .itemContBox .itemCount {
+    border-bottom: 1px solid #dcdcdc;
+    padding: 20px 20px 20px 0;
+}
+.item_main .itemContBox .itemCount .contCount{
+    font-size: 20px;
+}
+
+.item_main .itemContBox .itemCount select {
+    font-size: 20px; 
+    width: 55px; height: 35px;
+}
+.item_main .itemContBox .itemCount .stockZero {
+	font-size: 20px; color: #ff0000; 
+	padding-left: 15px;
+}
+.item_main .itemContBox .itemCount .itemPriceSum {
+	font-size: 20px;
+	padding: 20px 0;
+}
+.item_main .itemContBox .itemCount .itemBuy {}
+
+.item_main .itemContBox .itemCount .itemBuy button {
+    padding: 15px; margin-right: 10px;
+    font-size: 20px;
+    border: 1px solid #000;
+    margin: 10px 10px 10px 0;
+}
+.item_main .itemContBox .itemCount .basketAsk {
+	display: none; 
+	position: absolute;
+	z-index: 1000;
+	background-color: #fff;
+	text-align: center;
+	width: 350px; height: 125px;
+	font-size: 20px; border: 1px solid #000;
+	padding: 15px; margin: 0 10px 10px 0;
+}
+.item_main .itemContBox .itemCount .basketAsk #basketCancel {
+	font-size: 22px;
+}
+.item_main .itemContBox .itemCount .basketAsk #basket_list_button{
+	font-size: 15px; margin-top: 20px;
+	padding: 10px;
+	border: 1px solid #000;
+}
+
+/** 구매버튼영역 **/
+.item_main .itemBuyAdminBox {
+    margin-top: 20px; 
+}
+.item_main .itemBuyAdminBox button {
+    padding: 15px; margin-right: 10px;
+    font-size: 20px;
+    border: 1px solid #000;
+    margin: 10px 10px 10px 0;
+}
+.item_main .itemBuyAdminBox .adminEditDel {
+    display: inline-block;
+    width: 100%;
+}
+.item_main .itemBuyAdminBox .adminEditDel .del_form {
+    display: inline-block;
+}
+
+/** 상품 세부 내용 영역 **/
+.item_Cont { 
+	margin: 150px auto 0 auto; border: 1px solid #000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

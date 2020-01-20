@@ -1,0 +1,140 @@
+#container{
+    position: relative;
+    width: 1280px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+#container form{
+    height: 1000px;
+}
+
+.board_title{
+    margin: 60px;
+    text-align: center;
+
+}
+
+.board_title strong{
+    font-size: 20px;
+   line-height: 1.5;
+    font-family: '나눔 고딕','Nanum Gothic','Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif;
+    color: #1e1e1e;
+    font-weight: bold;
+    margin:0 auto;
+    width:140px;
+    height: 50px;
+}
+
+.wrap{
+    padding: 10px 0px;
+    margin: 0 auto;
+    width: 1200px;
+    height: 150px;
+}
+
+.wrap{
+    position: relative;
+    height: 100px;
+    border-bottom: 1px solid darkblue;
+}
+
+
+.wrap:nth-child(7){
+    border-bottom: none;
+}
+.back_end_cont{
+    overflow: hidden;
+    position: relative;
+    float: left;
+    width: 300px;
+    height: 105px;
+}
+
+.back_end_cont h3{
+    font-size: 23px;
+
+}
+
+.back_end_cont span{
+    position: relative;
+    bottom: -32px;
+}
+
+.back_end_cont p{
+    height: 1px;
+}
+
+.back_end_cont_info{
+    margin-top: 45px;
+    width: 69%;
+    height: 100%;
+}
+
+
+.back_end_cont_image{
+
+    float: right;
+    width: 29px;
+    height: 100%;
+}
+
+a{
+    color: black;
+    text-decoration:none;
+}
+
+a:hover{
+    color: grey;
+    transition: ease 0.3s ;
+    /*text-decoration: underline;*/
+}
+
+.image{
+    float: right;
+    width: 150px;
+    height: 100px;
+}
+
+.pagejing, .find_form{
+    text-align: center;
+    margin:20px auto;
+}
+
+
+.board_title{
+    margin-top:40px;
+    text-align: center;
+}
+
+.board_title h2{
+    font-size: 32px;
+}
+
+#bList_paging{
+    height: 130px;
+    width: 99%;
+    text-align: center;
+}
+
+#find_name{
+    height: 36px;
+}
+
+.search_div{
+    background-color: white;
+    position: fixed;
+    height: 130px;
+    text-align: center;
+    bottom: -75px;
+    right: 0px;
+    left: 0px;
+}
+
+.search_div select,input{
+    width: 150px;
+    height: 40px;
+}
+
+
+

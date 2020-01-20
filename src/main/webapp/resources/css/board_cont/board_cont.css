@@ -1,0 +1,175 @@
+#bigcontainer{
+    margin: 0 auto;
+    background-color: rgba(35, 38, 59, 0.1);
+    width: 1200px;
+    height: 100%;
+}
+
+#container{
+    background-color: white;
+    padding: 0 12px;
+    margin: 0 auto;
+    width: 700px;
+    height: 100%;
+}
+
+.wrap{
+    border: 1px solid ;
+}
+
+.wrap .title{
+    background-color: #fcfcfc;
+    padding-top: 12px;
+    font-size: 22px;
+}
+
+.wrap .id{
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.wrap .id .left{
+    margin-left: 6px;
+}
+
+.wrap .id .right{
+    margin-left: 422px;
+}
+
+.wrap .cont{
+    padding: 0 20px;
+    width: 600px;
+    margin-top: 16px;
+    font-size: 15px;
+}
+
+.cont img{
+    width: 500px;
+}
+
+.controller{
+    width: 100px;
+    margin-left: 593px;
+    height: 25px;
+}
+
+.controller a{
+    background-color: white;
+    border: 1px solid black;
+}
+
+.controller a:hover{
+    background-color: black;
+    color: white;
+    text-decoration: none;
+}
+
+.reply_wrap{
+    position: relative;
+}
+
+.head h1{
+    font-size: 30px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.reply_list_div{
+    border: 1px solid;
+    position: relative;
+    width: 100%;
+    height: 240px;
+    margin-top: 11px;
+    /*background: grey;*/
+
+}
+
+.rep{
+    background-color: #fcfcfc;
+    width: 100%;
+    height: 50px;
+    border-bottom:1px solid #ccc;
+}
+
+.rep h4{
+    padding: 0 6px;
+    font-size: 15px;
+}
+
+.rep h5{
+    opacity: 20%;
+    padding: 0 6px;
+}
+
+.reply_cont{
+    padding: 10px;
+    background-color: white;
+    margin: 0  auto;
+    width: 97%;
+    height: 59%;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+.reply_input{
+    margin-left: 5px;
+    margin-top: 4px;
+}
+
+.reply_input a{
+    width: 50px;
+    margin-left: 5px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.reply_input a:hover{
+    background-color: black;
+    color: white;
+    text-decoration: none;
+}
+
+
+
+.reply_div{
+    padding: 50px 0px;
+    margin: 0 auto;
+    width: 100%;
+    height: 500px;
+}
+
+.reply_wrap input{
+    position: absolute;
+    width: 83px;
+    height: 122px;
+}
+
+
+
+.reply{
+    padding: 10px;
+    resize: none;
+    width: 85%;
+    height: 100px;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+.login_div{
+    border: 1px solid;
+    height: 150px;
+    text-align: center;
+}
+
+.login_div h3{
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+
+
+
+

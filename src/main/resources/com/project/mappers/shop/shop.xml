@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Shop"> <!-- mapper네임스페이스명 설정 -->
+	<!-- 상점 게시글 저장 -->
+	<insert id="shop_insert" parameterType="s">
+	<!-- parameterType은 전달인자 타입이고 생략가능함. -->
+		insert into shopList (item_no,item_name,item_sub,item_price,
+		item_stockCount,item_cont,item_img) 
+		values(item_no_seq.nextval,#{item_name},#{item_sub},
+		#{item_price},#{item_stockCount},#{item_cont},#{item_img})
+	</insert>
+	
+	<!-- 검색전후 레코드 개수 -->
+	<select id="shop_count" parameterType="s"
+		resultType="int">
+		select count(item_no) from shopList
+		<where>
+			<if test="find_field == ''"></if>
+			<if test="find_field == 'item_name'">
+				item_name like #{find_name}
+			</if>
+			
+			<if test="find_field == 'item_price'">
+				item_price like #{find_name}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 검색 전후 shop 상품 목록 -->
+	<select id="shop_list" parameterType="s" resultType="s">
+		select * from(
+		select rowNum rNum,item_no,item_name,item_price,
+		item_stockCount,item_likeCount,item_img from(
+			select * from shopList
+			<where>
+				<if test="find_field == ''"></if>
+				<if test="find_field == 'item_name'">
+					item_name like #{find_name}
+				</if>
+				<if test="find_field == 'item_price'">
+					item_price like #{find_name}
+				</if>
+			</where>
+			order by item_no desc))
+		where rNum &gt;= #{startrow} and rNum &lt;=#{endrow}
+	</select>
+	
+	<!-- 내용 보기 -->
+	<select id="shop_cont" parameterType="int" resultType="s">
+		select * from shopList where item_no=#{item_no}
+	</select>
+	
+	<!-- shop 상품 내용 수정 -->
+	<update id="shop_edit">
+		update shopList set item_name=#{item_name},item_sub=#{item_sub},
+		item_price=#{item_price},item_stockCount=#{item_stockCount},
+		item_cont=#{item_cont},item_img=#{item_img} where item_no=#{item_no}
+	</update>
+	
+	<!-- shop 상품 내용 삭제 -->
+	<delete id="shop_del">
+		delete from shopList where item_no=#{item_no}
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
