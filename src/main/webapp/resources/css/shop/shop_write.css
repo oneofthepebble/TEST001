@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+/** 글쓰기 **/
+
+.write_main {
+	width: 1000px; position: relative;
+	margin: 50px auto;
+	height: 750px;
+}
+
+.write_text {
+	width: 100%;
+	text-align: center; align: center;
+}
+.write_text span {
+	font-size: 40px;
+}
+.write_text table {
+	width: 90%; border-spacing: 10px;
+	margin-left: auto; margin-right: auto;
+	padding-left: 50px;
+}
+.write_text table td {
+	text-align: left;
+}
+.write_text table td input {
+	width: 617px;
+}
+
+.write_text .btn {
+	width: 50px; height: 30px;
+}
+

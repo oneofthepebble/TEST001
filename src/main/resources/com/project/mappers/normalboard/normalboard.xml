@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Normal">
+    <!--일반게시판-->
+    <insert id="insert">
+        insert into NORMALBOARD (NORMAL_NO, NORMAL_ID, NORMAL_TITLE, NORMAL_CONT, NORMAL_DATE, NORMAL_REF, NORMAL_STEP) values (SEQ_NORMAL_NO.nextval,#{normal_id},#{normal_title},#{normal_cont},sysdate,SEQ_NORMAL_NO.nextval,0)
+    </insert>
+
+    <!--본글목록총갯수-->
+    <select id="count" resultType="int">
+        select count(NORMAL_NO) from NORMALBOARD
+        <where>
+            <if test="title==''">
+                and NORMAL_STEP=0
+            </if>
+            <if test="title=='board_id'">
+                NORMAL_ID like #{field} and NORMAL_STEP=0
+            </if>
+            <if test="title=='board_title'">
+                NORMAL_TITLE like #{field} and NORMAL_STEP=0
+            </if>
+            <if test="title=='board_cont'">
+                NORMAL_CONT like #{field} and NORMAL_STEP=0
+            </if>
+        </where>
+    </select>
+
+    <!--본글 총리스트-->
+    <select id="board_list" resultType="normal">
+        select * from (select rowNum rNum,NORMAL_NO,NORMAL_TITLE,NORMAL_ID,NORMAL_DATE,NORMAL_HIT,NORMAL_STEP
+        from (select * from NORMALBOARD
+        <where>
+            <if test="title==''"></if>
+            <if test="title=='board_id'">
+                NORMAL_ID like #{field}
+            </if>
+            <if test="title=='board_title'">
+                NORMAL_TITLE like #{field}
+            </if>
+            <if test="title=='board_cont'">
+                NORMAL_CONT like #{field}
+            </if>
+        </where>
+        order by normal_no desc)where NORMAL_STEP=0) where rNum &gt;= #{startrow} and rNum &lt;= #{endrow}
+    </select>
+
+    <!--내용 불러오기-->
+    <select id="normal_cont" resultType="normal">
+        select * from NORMALBOARD where NORMAL_NO=#{normal_no} and NORMAL_STEP=0
+    </select>
+
+    <!--댓글 저장-->
+    <insert id="reply_in">
+        insert into NORMALBOARD (NORMAL_NO, NORMAL_ID, NORMAL_TITLE, NORMAL_CONT, NORMAL_DATE, NORMAL_REF, NORMAL_STEP)
+        values (SEQ_NORMAL_NO.nextval,#{normal_id},'댓글',#{normal_cont},sysdate,#{normal_no},1)
+    </insert>
+
+    <!--댓글리스트-->
+    <select id="reply_list" resultType="normal">
+        select * from NORMALBOARD where NORMAL_ref=#{normal_no} and NORMAL_STEP=1 order by NORMAL_NO desc
+    </select>
+
+    <!--댓글 삭제-->
+    <delete id="reply_del" >
+        delete from NORMALBOARD where NORMAL_ID=#{normal_id} and NORMAL_NO=#{normal_no} and NORMAL_STEP=1
+    </delete>
+
+<!--    게시판삭제-->
+    <delete id="del_board">
+        delete from NORMALBOARD where NORMAL_REF=#{normal_ref} and NORMAL_STEP &lt;= 1
+    </delete>
+
+    <!--조회수증가-->
+    <update id="hit_up">
+        update NORMALBOARD set NORMAL_HIT=NORMAL_HIT+1 where NORMAL_NO=#{normal_no}
+    </update>
+
+    <update id="update_board_ok" parameterType="normal">
+        update NORMALBOARD set NORMAL_TITLE=#{normal_title} , NORMAL_CONT=#{normal_cont} where NORMAL_NO=#{normal_no} and NORMAL_STEP=0
+    </update>
+
+</mapper>

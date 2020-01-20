@@ -1,0 +1,130 @@
+/** basket_list.css **/
+
+/** 컨테이너 **/
+.container {
+	width: 1000px; margin: 50px auto;
+}
+
+/****/
+.basket_title {
+	margin-top: 40px; padding-bottom: 20px;
+    border-bottom: 1px solid #000;
+    font-size: 20px;
+}
+.basket_title span {
+	font-size: 40px; display: inline-block;
+    margin-right: 10px;
+}
+
+/** 장바구니 게시판 중앙 **/
+.basket_list {
+    width: 100%; 
+}
+.basket_list .basket_table {
+    width: 100%;
+    display: table; table-layout: fixed; 
+}
+
+/** 장바구니 게시판 테이블 컬럼 **/
+.basket_table .basket_head {
+    display: table-header-group;
+}
+.basket_table .basket_head span {
+    display: table-cell;
+    text-align: center;
+    padding: 20px 0;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+}
+
+/** 테이블 게시글 **/
+.basket_table .basket_body {
+    display: table-row; 
+    width: 100%;
+}
+.basket_table .basket_body > div {
+    width: 100%;
+}
+.basket_body .column {
+    display: table-cell;
+    text-align: center;
+    vertical-align : middle;
+    border-bottom: 1px solid #dcdcdc;
+    font-size: 18px;
+}
+.basket_body .column.table_none {
+    display: block; width: 1000px;
+    font-size: 35px;
+    padding: 20px;
+}
+.basket_body .column.table_title {
+	font-size: 22px;
+}
+.basket_body .basket_count {
+	font-size: 18px; text-align: center;
+	width: 40px; height: 25px;
+}
+.basket_body .column.table_img{
+	text-align: center;
+	padding: 15px;
+}
+.basket_body .column.table_img img {
+	margin: auto 0;
+	width: 140px; height: 140px;
+}
+.basket_body .column.table_del .basket_del {
+	font-size: 18px;
+	border: 1px solid #000;
+	padding: 5px;
+}
+
+/** 하단부 **/
+.basket_info{
+	margin: 20px 0;
+	text-align: right;
+	font-size: 20px;
+}
+.basket_info .item_price {
+	padding-bottom: 15px;
+}
+.basket_info .deli_price {
+	padding-bottom: 30px;
+}
+.basket_info .info_line {
+	border-top: 1px solid #000;
+	margin-left: 50%;
+}
+.basket_info .all_price {
+	padding: 15px 0;
+}
+.basket_buy {
+	text-align: right;
+	margin: 10px 0;
+}
+.basket_buy #basketBuy_btn {
+	margin-left: 10px;
+	font-size: 20px;
+	border: 1px solid #000;
+	padding: 5px;
+}
+.basket_buy #basketList_btn {
+	margin-left: 10px;
+	font-size: 20px;
+	border: 1px solid #000;
+	padding: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

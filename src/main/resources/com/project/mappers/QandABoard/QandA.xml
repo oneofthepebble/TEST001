@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="QandA"> <!-- mapper네임스페이스명 설정 -->
+	
+	<!-- QandA 게시판 저장 -->
+	<insert id="QandA_in">
+		insert into q_board (q_no,q_id,q_title,q_cont,q_ref,
+		q_step,q_level,q_date) values(q_no_seq.nextval,#{q_id},#{q_title},
+		#{q_cont},q_no_seq.nextval,0,0,sysdate)
+	</insert>
+	
+	<!-- 검색 전후 레코드 개수 -->
+	<select id="QandA_count" parameterType="QandA" resultType="int">
+		select count(q_no) from q_board
+		<where>
+			<if test="find_field == ''"></if>
+			<if test="find_field =='q_title'">
+				q_title like #{find_name}
+			</if>
+			
+			<if test="find_field == 'QandA_cont'">
+				q_cont like #{find_name}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 검색 전후 게시판 목록 -->
+	<select id="QandA_list" resultType="QandA">
+		select * from(
+		select rowNum rNum,q_no,q_id,q_title,q_hit,q_ref,
+		q_step,q_level,q_date from(
+		select * from q_board
+		<where>
+			<if test="find_field == ''"></if>
+				<if test="find_field == 'q_title'">
+					q_title like #{find_name}
+				</if>
+				<if test="find_field == 'q_cont'">
+					q_cont like #{find_name}
+				</if>
+		</where>
+		order by q_ref desc,q_level asc))
+		where rNum &gt;= #{startrow} and rNum &lt;=#{endrow}
+	</select>
+	
+	<!-- 조회수 증가 -->
+	<update id="QandA_hit" parameterType="int">
+		update q_board set q_hit=q_hit+1 
+		where q_no=#{q_no}
+	</update>
+	
+	<!-- 내용 보기 -->
+	<select id="QandA_cont" parameterType="int" resultType="QandA">
+		select * from q_board where q_no=#{q_no}
+	</select>
+	
+	<!-- 답변글 레벨 증가 -->
+	<update id="QandA_level_up">
+		update q_board set q_level=q_level+1 
+		where q_ref=#{q_ref} and q_level > #{q_level}
+	</update>
+	
+	<!-- 답변글 저장 -->
+	<insert id="QandA_reply_in">
+		insert into q_board (q_no,q_id,q_title,q_cont,q_ref,q_step,q_level,q_date) values(
+		q_no_seq.nextval,#{q_id},#{q_title},#{q_cont},#{q_ref},#{q_step}+1,#{q_level}+1,sysdate)
+	</insert>
+	
+	<!-- 게시판 글 수정 -->
+	<update id="QandA_edit">
+		update q_board set q_title=#{q_title},q_cont=#{q_cont}
+		where q_no=#{q_no}
+	</update>
+	
+	<!-- 게시판 글 삭제 -->
+	<delete id="QandA_del">
+		delete from q_board where q_no=#{q_no}
+	</delete>
+	
+	
+</mapper>

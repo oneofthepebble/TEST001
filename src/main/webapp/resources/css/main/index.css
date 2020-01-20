@@ -1,0 +1,240 @@
+/** index.css **/
+
+/** 레이아웃 **/
+body {}
+#main_header {
+    position: absolute;
+    width: 100%;
+    height: 120px;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 10;
+}
+#menu_btn {}
+#menu_slide {position: relative;}
+#contents {min-height: 600px;}
+#footer {}
+
+/** header 1stPage에서만 나타나게 하기 **/
+@media all and (min-width: 1200px) {
+    .fp-enabled .fp-viewing-1stPage header {
+      display: block;
+    }
+    .fp-enabled header {
+      display: none;
+    }
+  }
+
+/** 컨테이너 **/
+.container {position: relative; width: 100%; margin: 0 auto;}
+
+
+/** 헤더 **/
+.header {
+    width: 100%; margin: 0 auto;
+    display: block;
+    position: relative;
+}
+.header .header_menu {text-align: right;}
+.header .header_menu a {
+    position: relative; font-size: 15px;
+    color: #fff; display: inline-block; padding: 10px 15px 6px 0px;
+}
+.header .header_menu a::before {
+    content: ''; width: 1px; height: 13px; background-color: #fff;
+    position: absolute; right: 51px; top: 16px;
+}
+.header .header_menu a:first-child::before {width: 0;}
+.header .header_menu a:hover {color: #51b0dc;}
+
+.header .header_title {
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+}
+.header .header_title a {
+    font-size: 55px; display: inline-block; color: #fff;
+    background: #000;
+    padding: 5px 30px;
+    margin-top: -30px;
+    letter-spacing: 2px;
+    font-weight: 900;
+    transition: box-shadow 0.30s ease-in-out;
+
+}
+.header .header_title a:hover {
+    box-shadow: 
+        inset -9em 0 0 0 #257fac,
+        inset 9em 0 0 0 #257fac;
+}
+
+
+/** 메뉴(nav) **/
+.nav {
+    z-index: 100;
+}
+.nav .nav_item {display: inline-block; width: 100%;}
+
+
+.nav .nav_item #fullpage .section {
+    position: relative; overflow: hidden; float: left; 
+    text-align: center;
+}
+
+
+.nav .nav_item #fullpage .section:nth-child(1) {background: url(/img/main/main_image01.jpg); background-size: 100% 100%;}
+.nav .nav_item #fullpage .section:nth-child(2) {background: url(/img/main/main_image02.jpg); background-size: 100% 100%;}
+.nav .nav_item #fullpage .section:nth-child(3) {background: url(/img/main/main_image03.jpg); background-size: 100% 100%;}
+.nav .nav_item #fullpage .section:nth-child(4) {background: url(/img/main/main_image04.jpg); background-size: 100% 100%;}
+
+.nav .nav_item #fullpage .section .main_menu_img {
+    width: 100%;
+}
+
+/* .nav .nav_item #fullpage .section .main_menu_btn {
+    display: inline-block; position: relative;
+    width: 22%; height: 22%;
+    text-align: center;
+    background: rgba(0,0,0,0.77);
+}
+.nav .nav_item #fullpage .section .main_menu_btn a {
+    display: inline-block;
+    font-size: 60px;
+    color: #fff; 
+    transition: all 0.25s ease;
+} */
+
+.nav .nav_item #fullpage .section .main_menu_btn {
+	text-align: center;
+    text-transform: uppercase;
+    position: relative;
+}
+.nav .nav_item #fullpage .section .main_menu_btn a {
+	font-size: 60px; display: inline-block; color: #fff;
+    background: rgba(0,0,0,0.77); width: 334px;
+    padding: 5px 30px;
+    margin-top: -30px;
+    letter-spacing: 2px;
+    font-weight: 900;
+}
+/* .nav .nav_item #fullpage .section .main_menu_btn .a3 {
+	letter-spacing: 
+} */
+
+.nav #fullpage .section .main_menu_btn a:hover {color: #51b0dc;}
+
+
+
+/** 메인 하단 슬라이드(캡션포함) **/
+.main_slide {
+    position: relative; display: block;
+    margin-top: 20px;
+}
+.main_slide div {position: relative; width: 100%; margin: 1px;}
+.main_slide img {
+	filter:brightness(25%);
+	width: 500px; height: 500px;
+}
+
+
+.main_slide figcaption {
+    position: absolute; bottom: 0; left: 0; width: 100%; padding: 5px;
+    box-sizing: border-box;
+    color: #fff; text-align: left;
+}
+.main_slide .slick-active.slick-current figcaption {
+    position: absolute; bottom: 0; left: 0; width: 100%; padding: 5px;
+    box-sizing: border-box; background-color: rgba(0,0,0,0.5);
+    color: #fff; text-align: left;
+}
+.main_slide a figcaption em {
+    display: block; font-weight: bold; font-size: 20px;
+    text-transform: uppercase; opacity: 0;
+    transition: all .60s ease;
+    transform: translateX(85px);
+}
+
+.main_slide a figcaption span {
+    display: block; overflow: hidden; text-overflow: ellipsis; 
+    white-space: nowrap; opacity: 0; font-size: 15px;
+    transition: all .60s ease;
+    transform: translateX(85px);
+}
+
+/** 하단 슬라이드 **/
+
+.section.fp-auto-height .main_slide .slick-active.slick-current figcaption em {opacity: 1; transform: translateX(10px);}
+.section.fp-auto-height .main_slide .slick-active.slick-current figcaption span {opacity: 1; transform: translateX(10px);}
+.main_slide .slick-active a:hover img {filter: brightness(75%);}
+.main_slide .slick-active a:hover figcaption {background-color: rgba(0,0,0,0.5);}
+.main_slide .slick-active a:hover figcaption em {opacity: 1; transform: translateX(10px);}
+.main_slide .slick-active a:hover figcaption span {opacity: 1; transform: translateX(10px);}
+.main_slide .slick-active.slick-current a:hover img {filter: none;}
+
+.main_slide .slick-active.slick-center img {filter: brightness(100%);}
+
+
+
+
+.main_slide .slick-prev {
+    position: absolute; left: 20px; bottom: 220px; z-index: 1000; 
+    width: 60px; height: 60px; display: inline-block;
+    font: normal normal normal 50px/1 FontAwesome;
+    text-indent: -9999px;
+    background: #ffffff;
+    border-style: hidden;
+    background-color: rgba(255,255,255,0);
+}
+.main_slide .slick-prev::before {
+    content: "\f053";
+    color: #5dbfeb;
+    text-indent: 0;
+    position: absolute; left: 9px; top: 8px;
+}
+.main_slide .slick-next {
+    position: absolute; right: 50px; bottom: 220px; z-index: 1000; 
+    width: 60px; height: 60px; display: inline-block;
+    font: normal normal normal 50px/1 FontAwesome;
+    text-indent: -9999px;
+    background: #ffffff;
+    background-color: rgba(255,255,255,0);
+}
+.main_slide .slick-next::before {
+    content: "\f054";
+    color: #5dbfeb;
+    text-indent: 0;
+    position: absolute; left: 13px; top: 8px;
+}
+
+/** 푸터 **/
+.footer {text-align: center; margin-top: 50px; padding: 30px 50px;}
+.footer li {position: relative; display: inline; padding: 0 7px 0 10px; white-space: nowrap;}
+.footer li::before {
+    content: ''; width: 1px; height: 12px; background-color: #dbdbdb;
+    position: absolute; left: 0; top: 4px;
+}
+.footer li:first-child::before {width: 0;}
+.footer address {padding-top: 17px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

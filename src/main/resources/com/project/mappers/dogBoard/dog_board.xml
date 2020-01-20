@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Dog">
+
+	<!-- 강아지 저장(total) -->
+	<insert id="dog_in">
+		insert into dog_board (dog_no,dog_title,dog_cont,dog_file) 
+		values(dog_no_seq.nextval,#{dog_title},#{dog_cont},#{dog_file})
+	</insert>
+	
+	<!-- 검색전후 레코드 개수(total) -->
+	<select id="dog_count" parameterType="dog" resultType="int">
+		select count(dog_no) from dog_board
+		<where>
+			<if test="find_field == ''"></if>
+			<if test="find_field == 'dog_title'">
+				dog_title like #{find_name}
+			</if>
+			
+			<if test="find_field == 'dog_cont'">
+				dog_cont like #{find_name}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 검색 전후 글쓰기 목록(total) -->
+	<select id="dog_list" parameterType="dog" resultType="dog">
+		select * from(
+		select rowNum rNum,dog_no,dog_title,dog_file from(
+			select * from dog_board
+			<where>
+				<if test="find_field == ''"></if>
+				<if test="find_field == 'dog_title'">
+					dog_title like #{find_name}
+				</if>
+				<if test="find_field == 'dog_cont'">
+					dog_cont like #{find_name}
+				</if>
+			</where>
+			order by dog_no desc))
+			
+			where rNum &gt;= #{startrow} and rNum &lt;=#{endrow}
+			
+	</select>
+	
+	<!-- 내용보기(total) -->
+	<select id="dog_cont" parameterType="int" resultType="dog">
+		select * from dog_board where dog_no=#{dog_no}
+	</select>
+	
+	<!-- 게시글 수정(total) -->
+	<update id="dog_edit">
+		update dog_board set dog_title=#{dog_title},dog_cont=#{dog_cont},
+		dog_file=#{dog_file} where dog_no=#{dog_no}
+	</update>
+	
+	<!-- 게시물 삭제(total) -->
+	<delete id="dog_del">
+		delete from dog_board where dog_no=#{dog_no}
+	</delete>
+	
+	<!-- 강아지(시츄) -->
+	<!-- 검색전후 레코드 개수(total) -->
+	<select id="dog_shih_count" parameterType="dog" resultType="int">
+		select count(dog_no) from dog_board
+		<where>
+			<if test="find_field == ''"></if>
+			<if test="find_field == 'dog_title'">
+				dog_title like #{find_name}
+			</if>
+			
+			<if test="find_field == 'dog_cont'">
+				dog_cont like #{find_name}
+			</if>
+		</where>
+		dog_board where dog_title='시츄'
+	</select>
+	
+	<!-- 검색 전후 글쓰기 목록(total) -->
+	<select id="dog_shih_list" parameterType="dog" resultType="dog">
+		select * from(
+		select rowNum rNum,dog_no,dog_title,dog_file from(
+			select * from dog_board
+			<where>
+				<if test="find_field == ''"></if>
+				<if test="find_field == 'dog_title'">
+					dog_title like #{find_name}
+				</if>
+				<if test="find_field == 'dog_cont'">
+					dog_cont like #{find_name}
+				</if>
+			</where>
+			dog_board where dog_title='시츄' order by dog_no desc))
+			
+			where rNum &gt;= #{startrow} and rNum &lt;=#{endrow}			
+	</select>
+
+	<!-- 강아지(말티즈) -->
+	<!-- 검색전후 레코드 개수(total) -->
+	<select id="dog_mal_count" parameterType="dog" resultType="int">
+		select count(dog_no) from dog_board
+		<where>
+			<if test="find_field == ''"></if>
+			<if test="find_field == 'dog_title'">
+				dog_title like #{find_name}
+			</if>
+			
+			<if test="find_field == 'dog_cont'">
+				dog_cont like #{find_name}
+			</if>
+		</where>
+		dog_board where dog_title='말티즈'
+	</select>
+	
+	<!-- 검색 전후 글쓰기 목록(total) -->
+	<select id="dog_mal_list" parameterType="dog" resultType="dog">
+		select * from(
+		select rowNum rNum,dog_no,dog_title,dog_file from(
+			select * from dog_board
+			<where>
+				<if test="find_field == ''"></if>
+				<if test="find_field == 'dog_title'">
+					dog_title like #{find_name}
+				</if>
+				<if test="find_field == 'dog_cont'">
+					dog_cont like #{find_name}
+				</if>
+			</where>
+			dog_board where dog_title='말티즈' order by dog_no desc))
+			
+			where rNum &gt;= #{startrow} and rNum &lt;=#{endrow}			
+	</select>	
+	
+	<!-- 강아지(푸들) -->
+	<!-- 검색전후 레코드 개수(total) -->
+	<select id="dog_poodle_count" parameterType="dog" resultType="int">
+		select count(dog_no) from dog_board
+		<where>
+			<if test="find_field == ''"></if>
+			<if test="find_field == 'dog_title'">
+				dog_title like #{find_name}
+			</if>
+			
+			<if test="find_field == 'dog_cont'">
+				dog_cont like #{find_name}
+			</if>
+		</where>
+		dog_board where dog_title='푸들'
+	</select>
+	
+	<!-- 검색 전후 글쓰기 목록(total) -->
+	<select id="dog_poodle_list" parameterType="dog" resultType="dog">
+		select * from(
+		select rowNum rNum,dog_no,dog_title,dog_file from(
+			select * from dog_board
+			<where>
+				<if test="find_field == ''"></if>
+				<if test="find_field == 'dog_title'">
+					dog_title like #{find_name}
+				</if>
+				<if test="find_field == 'dog_cont'">
+					dog_cont like #{find_name}
+				</if>
+			</where>
+			dog_board where dog_title='푸들' order by dog_no desc))
+			
+			where rNum &gt;= #{startrow} and rNum &lt;=#{endrow}			
+	</select>	
+	
+	
+
+</mapper>

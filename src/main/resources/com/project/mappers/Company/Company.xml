@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Company"> <!-- mapper네임스페이스명 설정 -->
+
+	<insert id="insertCompany"><!-- 지점 추가 할 insert -->
+	INSERT INTO COMPANYlOCATION (COMPANY_NO, COMPANY_NAME, COMPANY_X, COMPANY_Y, COMPANY_ADDR, COMPANY_IMAGE)
+VALUES(COMPANY_NO_SEQ.NEXTVAL, #{company_name},#{company_x},#{company_y},#{company_addr},#{company_image})
+	</insert>
+	
+	<select id="name_list" resultType="CompanyVO"><!-- 지점의 모든 버튼 값 가져올 company_name -->
+		SELECT COMPANY_NAME FROM COMPANYLOCATION		
+	</select>
+	
+	<select id="CompanyInfo" resultType="CompanyVO">
+		SELECT * FROM COMPANYLOCATION WHERE COMPANY_NAME=#{company_name}
+	</select>
+</mapper>

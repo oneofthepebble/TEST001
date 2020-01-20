@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Board">
+    <!--게시판 글쓰기-->
+    <insert id="board_insert">
+        insert into BOARD (back_end_list_no, back_end_list_img, back_end_list_title, back_end_list_cont, back_end_list_id, back_end_list_date,step,ref)values (back_end_list_no_seq.nextval,#{back_end_list_img},#{back_end_list_title},#{back_end_list_cont},#{back_end_list_id},sysdate,0,back_end_list_no_seq.nextval)
+    </insert>
+
+    <!--내용 보기-->
+    <select id="select_my_board" resultType="board">
+        select * from BOARD where BACK_END_LIST_NO=#{back_end_list_no} and STEP=0
+    </select>
+
+    <!--댓글 저장-->
+    <insert id="insert_reply">
+        insert into BOARD(BACK_END_LIST_NO, BACK_END_LIST_IMG, BACK_END_LIST_TITLE, BACK_END_LIST_CONT, BACK_END_LIST_ID, BACK_END_LIST_DATE, STEP, REF) values(back_end_list_no_seq.nextval,'답변글','답변글',#{back_end_list_cont},#{back_end_list_id},sysdate,#{step}+1,#{back_end_list_no})
+    </insert>
+
+    <!--댓글 삭제-->
+    <delete id="user_reply_del">
+        delete from BOARD where BACK_END_LIST_NO=#{back_end_list_no} and STEP=1
+    </delete>
+
+    <!--댓글 목록-->
+    <select id="get_reply" resultType="board">
+        select * from (select * from BOARD where step&gt;0 and ref=#{back_end_list_no}) order by BACK_END_LIST_DATE desc
+    </select>
+
+    <!--게시글 삭제-->
+    <delete id="user_board_del">
+        delete from BOARD where BACK_END_LIST_NO=#{back_end_list_no} and STEP &lt;= 1
+    </delete>
+
+    <!--게시글 수정-->
+    <update id="user_board_update">
+        update BOARD set BACK_END_LIST_TITLE=#{back_end_list_title},BACK_END_LIST_CONT=#{back_end_list_cont},BACK_END_LIST_IMG=#{back_end_list_img} where BACK_END_LIST_NO=#{back_end_list_no} and STEP=0
+    </update>
+
+    <update id="user_reply_board_up">
+        update BOARD set BACK_END_LIST_CONT=#{back_end_list_cont} where BACK_END_LIST_NO=#{back_end_list_no}
+    </update>
+
+</mapper>

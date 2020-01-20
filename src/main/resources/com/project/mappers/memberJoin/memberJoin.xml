@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MemberJoin"> <!-- mapper네임스페이스명 설정 -->
+	
+	<insert id="MbJoin" parameterType="MemberVO">
+		insert into MemberJoin (user_id, user_pwd, user_name, user_birthday, user_gender, user_email, user_phone, join_date)
+		values(#{user_id}, #{user_pwd}, #{user_name}, #{user_birthday}, #{user_gender}, #{user_email}, #{user_phone}, sysdate)
+	</insert>
+	
+	<select id="SearchID" parameterType="String" resultType="String">
+		SELECT USER_ID FROM MEMBERJOIN WHERE USER_ID = #{checkwords}
+	</select>
+	
+	<select id="MyPageInfo" resultType="MemberVO">
+		SELECT USER_ID, USER_NAME, USER_BIRTHDAY, USER_GENDER, USER_EMAIL, USER_PHONE FROM MEMBERJOIN WHERE USER_ID = #{user_id}
+	</select>
+	
+	<update id="updateEmail">
+		UPDATE MEMBERJOIN SET USER_EMAIL = #{user_email} WHERE USER_ID = #{user_id}
+	</update>
+	
+	<update id="updatePN">
+		UPDATE MEMBERJOIN SET USER_PHONE = #{user_phone} WHERE USER_ID = #{user_id}
+	</update>
+	
+	<update id="updatePWD">
+		UPDATE MEMBERJOIN SET USER_PWD = #{user_pwd} WHERE USER_ID = #{user_id}
+	</update>
+	
+	<select id="NBView" parameterType="MemberVO" resultType="normal">
+		 <![CDATA[
+			
+			select * from
+			(select rowNum rNum,normal_no,normal_title from
+				(select * from NormalBoard where normal_id=#{user_id} and normal_step=0 order by normal_no desc)
+				)where rNum >= 1 and rNum <=5
+		
+		]]>
+	</select>
+	<select id="BView" parameterType="MemberVO" resultType="board">
+		 <![CDATA[
+			
+			select * from
+			(select rowNum rNum,BACK_END_LIST_NO,BACK_END_LIST_TITLE,STEP from
+				(select * from BOARD where BACK_END_LIST_ID=#{user_id} and STEP=0 order by BACK_END_LIST_NO desc)
+			 )where rNum >= 1 and rNum <=5
+		
+		]]>
+	</select>
+</mapper>
+
+

@@ -1,0 +1,288 @@
+/* MyPageContainer */
+#MyPageContainer {
+	position: relative;
+	width: 75%;
+	border-left: solid 1px black;
+	border-right: solid 1px black;
+	margin: 0 auto;
+	padding: 7% 0;
+	min-width: 460px;
+}
+
+#ShopLink {
+	display: none;
+	position: absolute;
+	right: 36px;
+	top: -30px;
+}
+/* 회원 정보들을 담은 컨테이너 */
+#MemberInfos {
+	width: 95%;
+	height: 323px;
+	border: solid 1px black;
+	margin: 60px auto 0 auto;
+}
+
+/* 회원정보 글자 div */
+.MemberInfo {
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	font-size: 50px;
+	font-weight: bold;
+	margin: 30px 0;
+	text-align: center;
+}
+
+/* MemberInfos안에 있는 Items*/
+.UpdateMember {
+	position: relative;
+	float: left;
+	padding-top: 20px;
+	width: 49.5%;
+	height: 50px;
+	text-align: center;
+	vertical-align: middle;
+	border-top: solid 1px black;
+}
+.UpdateMember:nth-child(2n) {
+	margin-left: 7px;
+	border-right: solid 1px black;
+}
+.UpdateMember > p {
+	display: inline-block;
+}
+
+/* 수정 할 Email,PhoneNumber 안에 p태그 자리 잡기 */
+.Member_Email > p,
+.Member_PhoneNumber > p {
+	display: inline-block;
+	margin-right: 12px;
+}
+/* 기본정보 Email */
+#Member_Email,
+#Member_PhoneNumber {
+	display: block;
+}
+
+/* 수정 input display 영역 */
+#Update_Email_Area,
+#Update_PN_Area,
+#Update_Pwd_Area {
+	display: none;
+}
+/* 수정버튼 눌렀을 경우 */
+#Update_Email,
+#Update_PN,
+#Update_Pwd {
+	position: relative;
+	margin: 0 auto;
+	width: 65%;
+	height: 30px;
+}
+#Update_Email_ok,
+#Update_PN_ok,
+#Update_Pwd_ok {
+	position: absolute;
+	width: 50px;
+	right: 20px;
+	top: 25px;
+}
+
+/* 수정 할 input Type */
+.Update_Email,
+.Update_PN {
+	display: block;
+}
+
+/* 한줄효과 */
+.OneLine {
+	width: 25em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin: 0;
+}
+
+/* 수정하기 버튼 */
+#updateBtn_Email,
+#updateBtn_PN {
+	width: 50px;
+	position: absolute;
+	right: 10px;
+	top: 20px;
+}
+
+/* MyPage영역 안에 게시판 영역 */
+#NoticeBoards {
+	clear: both;
+	box-sizing: border-box;
+	height: 300px;
+	border: solid 1px black;
+	margin: 20px auto 0 auto;
+	width: 95%;
+}
+
+/* BoardArea게시판 container */
+.BoardContainer {
+	width: 49.6%;
+	height: 100%;
+	float: left;
+}
+/* 입양게시판 */
+.AdoptBoard {
+	border-right: solid 1px black;
+	margin-left: 5px;
+}
+.Adopt,
+.Normal {
+	text-align: center;
+	height: 70px;
+	line-height: 70px;
+	border-bottom: solid 1px black;
+	font-size: 30px;
+	font-weight: bold;
+}
+.AdoptCont {
+	text-align: center;
+}
+
+/* 일반게시판 */
+.NormalCont {
+	text-align: center;
+}
+
+/* 게시판 ul li 태그 */
+.Adopt_Ul li,
+.Normal_Ul li {
+	position: relative;
+	margin: 20px auto 0 auto;
+}
+.Adopt_Ul li::before {
+	content: '';
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	margin: -5px 10px auto 5px;
+	vertical-align: middle;
+	background : #2698cb;
+	border-radius: 50%;
+}
+.Normal_Ul li::before {
+	content: '';
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	margin: -5px 10px auto 10px;
+	vertical-align: middle;
+	background : #2698cb;
+	border-radius: 50%;
+}
+
+/* ShopContainer 장바구니 목록 전체 영역 */
+#ShopContainer {
+	width: 95%;
+	height: 1000px;
+	border: solid 1px green;
+	margin: 10px auto 0 auto;
+}
+
+/* Media Query */
+@media (max-width: 1220px) {
+	/* 회원 정보 -start-*/
+	#MemberInfos {
+		height: 251px;
+	}
+	.UpdateMember {
+		width: 32.5%;
+	}
+	.UpdateMember:nth-child(2) {
+		margin-left: 12px;
+		border-right: solid 1px black;
+	}
+	.UpdateMember:nth-child(3) {
+		border-right: solid 1px black;
+	}
+	.UpdateMember:nth-child(4) {
+		margin: 0;
+		border-right: none;
+	}
+	.UpdateMember:nth-child(5) {
+		margin-left: 12px;
+		border-right: solid 1px black;
+	}
+	.UpdateMember:nth-child(6) {
+		margin: 0;
+		border-right: solid 1px black;
+	}
+	.UpdateMember:nth-child(7) {
+		margin: 0;
+		border-right: none;
+	}
+	.OneLine {
+		width: 60%;
+	}
+	/* /회원정보 -end- */
+
+	/* Board -start- */
+	.BoardContainer {
+		width: 49.4%;
+	}
+	#Update_Email,
+	#Update_PN,
+	#Update_Pwd {
+		width: 50%;
+		margin-left: -50px;
+	}
+	/* Board -end- */
+}
+
+@media (max-width: 760px) {
+	#MemberInfos {
+		height: 533px;
+	}
+	.UpdateMember {
+		width: 100%;
+		margin-left: 0;
+	}
+	.UpdateMember:nth-child(2) {
+		margin: 0;
+		border-right: none;
+	}
+	.UpdateMember:nth-child(5) {
+		margin: 0;
+		border-right: none;
+	}
+	/* Board -start- */
+	#NoticeBoards {
+		height: 400px;
+	}
+	.BoardContainer {
+		width: 100%;
+		height: 50%;
+		margin: 0;
+	}
+	.AdoptBoard {
+		border-right: none;
+		border-bottom: solid 1px black;
+	}
+	#Update_Email,
+	#Update_PN,
+	#Update_Pwd {
+		width: 50%;
+	}
+
+	.Adopt_Ul li,
+	.Normal_Ul li {
+		margin-top: 5px;
+	}
+	.Normal_Ul li::before {
+		margin-left: 5px;
+	}
+	/* Board -end- */
+
+	/* Shop */
+	#ShopLink {
+		right: 15px;
+	}
+}

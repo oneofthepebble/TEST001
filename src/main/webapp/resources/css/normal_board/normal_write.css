@@ -1,0 +1,58 @@
+.normal_container{
+    margin: 0 auto;
+    width:1200px;
+    height: 700px;
+}
+
+.bbs-tit{
+    margin:30px auto ;
+    width: 50%;
+    height: 9%;
+    text-align: center;
+    font-size: 20px;
+}
+
+.normal_title,.normal_cont,.normal_button{
+    width: 70%;
+    margin: 0 auto;
+}
+
+.normal_title input{
+    padding: 0 10px;
+    width: 92.7%;
+    height: 40px;
+}
+
+.normal_cont textarea{
+    width: 800px;
+    height: 30%;
+}
+
+.normal_button{
+    width: 64%;
+    text-align: right;
+}
+
+.normal_button input{
+    width: 70px;
+    height: 40px;
+}
+
+#smart_editor2 #smart_editor2_content{
+    border: 1px solid #b5b5b5;
+    width: 836px;
+}
+
+
+/*.se2_text_tool husky_seditor_text_tool .normal_cont .se2_photo{*/
+/*    display: none;*/
+/*}*/
+
+/*.se2_multy{*/
+/*    display: none;*/
+/*}*/
+/*#smart_editor2 {*/
+/*    display: none;*/
+/*}*/
+
+/*#smart_editor2 .se2_photo { display: none; }*/

@@ -1,0 +1,19 @@
+#container{
+    margin: 0 auto;
+    width: 803px;
+    height: 691px;
+}
+
+.cont_div{
+    margin-top: 50px;
+}
+
+.cont_div input {
+    width: 250px;
+    height: 30px;
+}
+
+#save{
+    width: 100px;
+    height: 50px;
+}
